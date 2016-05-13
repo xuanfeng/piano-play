@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+/*------- reset -------*/
+/*
+Theme Name: xuanfeng
+Date:2013/10/01;
+Version:2.0;
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video { margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+
+/* HTML5标签初始化 
+--------------------------------------------------*/
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+
+/* 标签初始化 
+--------------------------------------------------*/
+body { line-height: 1; color:#333;font:14px/1.5 "微软雅黑",Arial, Helvetica, Verdana, sans-serif}
+ol, ul { list-style: none; }
+blockquote, q { 
+	quotes: none; 
+	border-left: solid 4px #39c;
+	margin-left: 10px;
+	padding-left: 10px;
+	background: whitesmoke;
+	margin: 10px auto;
+	padding: 6px 10px;
+	color: #666;
+	font-size: 20px;
+}
+i{
+	font-style: normal;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after { content: ''; content: none; }
+table { border-collapse: collapse; border-spacing: 0; }
+a img{ border:0; }
+h1{ font-size:24px; }
+h2{ font-size:20px; }
+h3{ font-size:18px; }
+h4{ font-size:14px; }
+h5, h6{ font-size:12px; }
+a { text-decoration:none; }
+a:hover { text-decoration:underline; }
+div{display:block;}
+
+/* 解决Google浏览器字体不小于12px的问题
+--------------------------------------------------*/
+html{ -webkit-text-size-adjust:none;}
+a:focus {
+    outline:none;
+}
+
+/*让position:fixed在IE6下可用! */
+* html,* html body /* 修正IE6振动bug */{background-image:url(about:blank);background-attachment:fixed;}
