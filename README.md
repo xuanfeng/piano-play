@@ -3,7 +3,8 @@ piano-play
 
 ##基于html5的钢琴弹奏游戏
 
-- demo地址：http://www.xuanfengge.com/piano
+- demo预览：http://www.xuanfengge.com/demo/201612/piano/html/index.html
+- 钢琴节奏：http://www.xuanfengge.com/piano
 
 
 ##功能
