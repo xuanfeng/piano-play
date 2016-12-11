@@ -1217,7 +1217,7 @@ textarea::-moz-placeholder {
   width: 140px;
   height: 60px;
   text-indent: -999em;
-  background-image: url(../slice/logo.png);
+  background-image: url(../img/logo.png);
   background-repeat: no-repeat;
 }
 

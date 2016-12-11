@@ -61,6 +61,7 @@
 			randomPlay: true,		// 初始化时随机播放
 			timeSpace: 50,			// 节奏计时间隔 50ms
 			keyLen: 9,				// 默认9个key
+			mediaSrc: 'http://www.xuanfengge.com/wp-content/themes/lee3.0/dist/media/',  // 音频路径前缀
 		}, options);
 
 		this.property = {
@@ -100,10 +101,7 @@
 		initAudio: function(){
 			// 获取格式
 			var audioFormat = this.getAudioFormat();
-			var src = 'http://www.xuanfengge.com/wp-content/themes/lee3.0/dist/media/{{key}}.' + audioFormat;
-			if(location.hostname == 'localhost'){
-				src = 'http://localhost/xuanfeng-v3.0/wp-content/themes/lee3.0/dev/media/{{key}}.' + audioFormat;
-			}
+			var src = this.options.mediaSrc + '{{key}}.' + audioFormat;
 			for(var key=1; key<=this.options.keyLen; key++){
 				this.loadAudio(key, src.replace(/{{key}}/g, key));
 			}

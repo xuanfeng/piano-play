@@ -1,6 +1,12 @@
 $(function(){
+	var mediaSrc = 'http://www.xuanfengge.com/wp-content/themes/lee3.0/dist/media/';
+	if(location.hostname == 'localhost'){
+		mediaSrc = '../media/';
+	}
+
 	var piano = new Piano({
 		playKeyCallback: navAnimate,
+		mediaSrc: mediaSrc
 	});
 
 	// 大面板
