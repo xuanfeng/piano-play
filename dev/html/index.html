@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>piano-play 轩枫阁</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="../css/style-index.css" />
+</head>
+<body class="">
+<header class="mod-header">
+    <div class="mod-header__progress"></div>
+    <div class="mod-header__wrap">
+        <h1 class="js_fly mod-header__logo">
+            <a href="http://www.xuanfengge.com/xuanfeng-v3.0">轩枫阁</a>
+        </h1>
+
+        <div class="js_menu mod-header__nav">
+            <ul id="menu-nav" class="menu"><li id="menu-item-19" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-19"><a href="http://www.xuanfengge.com/xuanfeng-v3.0/">首页</a></li>
+                <li id="menu-item-9" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-9"><a href="http://www.xuanfengge.com/xuanfeng-v3.0/category/web">Web前端</a></li>
+                <li id="menu-item-12" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-12"><a href="http://www.xuanfengge.com/xuanfeng-v3.0/category/skill">授人以渔</a></li>
+                <li id="menu-item-2813" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-2813"><a href="http://www.xuanfengge.com/xuanfeng-v3.0/category/ui">UI设计</a></li>
+                <li id="menu-item-10" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-10"><a href="http://www.xuanfengge.com/xuanfeng-v3.0/category/wordpress">WP视点</a></li>
+                <li id="menu-item-1016" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1016"><a href="http://www.xuanfengge.com/xuanfeng-v3.0/gallery">美图酷览</a></li>
+                <li id="menu-item-13" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-13"><a href="http://www.xuanfengge.com/xuanfeng-v3.0/category/art">文艺青年</a></li>
+                <li id="menu-item-14" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-14"><a href="http://www.xuanfengge.com/xuanfeng-v3.0/category/code">程序人生</a></li>
+                <li id="menu-item-164" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-164"><a href="http://www.xuanfengge.com/xuanfeng-v3.0/about-message">关于&amp;留言</a></li>
+                <li id="menu-item-2919" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2919"><a href="#comment">搜索</a></li>
+
+            </ul>
+        </div>
+
+        <div class="js_piano_nav_icon mod-header__music-icon" title="钢琴节奏">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+        </div>
+    </div>
+</header>
+
+<div class="js_piano mod-piano__wrap ui-d-n">
+    <div class="js_piano_album mod-piano__album">
+        <div data-type="album" class="js_piano_pannel mod-piano__album-list">
+            <h2>钢琴节奏</h2>
+            <h3>请选择弹奏的曲谱</h3>
+            <ul class="js_album_list ui-clearfix"></ul>
+        </div>
+
+        <div data-type="opern" class="js_piano_pannel js_opern mod-piano__song-opern">
+            <ul class="mod-piano__piano-key">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li class="high-pat">1</li>
+                <li class="high-pat">2</li>
+            </ul>
+            <h3 class="mod-piano__opern-header mod-piano__song_wrap ui-mt-medium ui-clearfix">
+                <span class="title"></span>
+                <a class="js_show_album ui-fl-l" href="javascript:;">[返回曲子列表]</a>
+                <!-- <div class="ui-fl-r ui-d-n">
+                    <a class="js_save_listen ui-mr-large" href="javascript:;">试听</a>
+                    <a class="" href="javascript:;">删除</a>
+                </div> -->
+            </h3>
+            <div class="js_opern_info mod-piano__song_wrap"></div>
+        </div>
+
+        <div data-type="record" class="js_piano_pannel js_piano_function mod-piano__record">
+            <div class="js_record_srea">
+                <span class="js_recore_text mod-piano__record-state">点击开始录制，可以录制弹奏的曲子</span>
+                <div class="mod-piano__record-panel">
+                    <a class="js_start_record piano_button button-rounded button-flat-action" href="javascript:;">开始录制</a>
+                    <a class="js_finish_record piano_button button-rounded button-flat-highlight ui-d-n" href="javascript:;">完成录制</a>
+                    <a class="js_cancel_record mod-piano__cancel-btn ui-d-n" href="javascript:;">取消</a>
+                </div>
+            </div>
+            <div class="js_recore_success ui-d-n">
+                <div class="mod-piano__record-panel ui-mt-large">
+                    <a class="js_preview_record piano_button button-rounded button-flat-action" href="javascript:;">马上试听</a>
+                    <a class="js_reset_record piano_button button-rounded button-flat-caution" href="javascript:;">重新录制</a>
+                    <a class="js_upload_record piano_button button-rounded button-flat-primary" href="http://www.xuanfengge.com/piano" target="_blank">提交此曲</a>
+                </div>
+                <div class="js_record_share mod-piano__record-share ui-mt-medium">
+                    <a class="js_share_record mod-piano__share_record" href="javascript:;"><input class="js_song_link mod-piano__share-copy_text" value="">复制歌曲链接</a>
+                    <span class="">分享钢琴节奏：</span>
+                    <a class="js_share_tsina tsina sina-weibo" href="javascript:;"><i></i>新浪微博</a>
+                    <a class="js_share_tqq tqq qq-weibo" href="javascript:;"><i></i>腾讯微博</a>
+                    <a class="js_share_tqzone tqzone qqzone" href="javascript:;"><i></i>QQ空间</a>
+                    <a class="js_share_renren renren renren" href="javascript:;"><i></i>人人网</a>
+                </div>
+            </div>
+        </div>
+
+        <ul class="mod-piano__nav js_piano_nav">
+            <li class="active" data-type="album"><a href="javascript:;">看谱弹琴</a></li>
+            <li class="" data-type="record"><a href="javascript:;">录制曲子</a></li>
+            <li><a href="http://www.xuanfengge.com/piano" target="_blank">弹奏攻略</a></li>
+        </ul>
+
+    </div>
+
+</div>
+
+<script src="../js/lib/jquery.js"></script>
+<script src="../js/lib/sns_share.js"></script>
+<script src="../js/piano-play.js"></script>
+<script src="../js/piano.js"></script>
+</body>
+</html>

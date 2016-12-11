@@ -1,0 +1,661 @@
+// @import "lib-layout";
+@import "lib-mixins";
+
+// 提示
+.mod-tips{
+	min-width: 100px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    .transform(translateX(-50%));
+    text-align: center;
+    z-index: 1000;
+    color: #FFF;
+	background-color: #4a90e2;
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+
+    &.success{
+		background-color: #4a90e2;
+    }
+	&.error{
+		background-color: #ee8756;
+	}
+}
+
+
+body.mod-piano{
+	overflow: hidden;
+
+	.mod-header__logo{
+		display: none;
+	}
+	.mod-header__nav{
+		width: 1000px;
+		margin: 0 auto;
+		float: none;
+	}
+	.mod-header__nav li{
+		width: 111px;
+	}
+	.mod-header__music-icon{
+		// right: 30px;
+	}
+}
+
+// music
+.mod-header__music-icon{
+	position: absolute;
+    right: -40px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+	// M型
+	i{
+		width: 2px;
+		height: 15px;
+		position: absolute;
+		bottom: 8px;
+		background-color: #666;
+		.transition(all 0.2s ease);
+	}
+	i:nth-of-type(1){
+		left: 0;
+		display: none;
+	}
+	i:nth-of-type(2){
+		left: 6px;
+		.transform(rotate(22.5deg));
+	}
+	i:nth-of-type(3){
+		left: 12px;
+		.transform(rotate(-22.5deg));
+	}
+	i:nth-of-type(4){
+		left: 18px;
+		.transform(rotate(22.5deg));
+	}
+	i:nth-of-type(5){
+		left: 24px;
+		.transform(rotate(-22.5deg));
+	}
+
+	// 跳动
+	&:hover:not(.close){
+		i{
+			.transform(rotate(0deg));
+			background-color: #333;
+		}
+		i:nth-of-type(1){
+			-webkit-animation: piano_wave 0.66s linear infinite;
+			animation: piano_wave 0.66s linear infinite;
+		}
+		i:nth-of-type(2){
+			-webkit-animation: piano_wave 0.8s linear infinite;
+			animation: piano_wave 0.8s linear infinite;
+		}
+		i:nth-of-type(3){
+			-webkit-animation: piano_wave 0.7s linear infinite;
+			animation: piano_wave 0.7s linear infinite;
+		}
+		i:nth-of-type(4){
+			-webkit-animation: piano_wave 0.5s linear infinite;
+			animation: piano_wave 0.5s linear infinite;
+		}
+		i:nth-of-type(5){
+			-webkit-animation: piano_wave 0.9s linear infinite;
+			animation: piano_wave 0.9s linear infinite;
+		}
+		i:nth-of-type(6){
+			-webkit-animation: piano_wave 1.2s linear infinite;
+			animation: piano_wave 1.2s linear infinite;
+		}
+	}
+
+	// 关闭
+	&.close{
+		i:nth-of-type(1), i:nth-of-type(3), i:nth-of-type(5){
+			display: none;
+		}
+		i:nth-of-type(2), i:nth-of-type(4){
+			width: 2px;
+			height: 20px;
+			left: 14px;
+			bottom: 5px;
+			.transform(rotate(45deg));
+		}
+		i:nth-of-type(4){
+			.transform(rotate(-45deg));
+		}
+
+		.transition(transform 0.2s linear);
+		&:hover{
+			transform-origin: center center;
+			.transform(rotate(180deg));
+		}
+	}
+}
+@-webkit-keyframes piano_wave{
+	0%{height: 4px}
+	50%{height: 18px}
+	100%{height: 10px}
+}
+@keyframes piano_wave{
+	0%{height: 4px}
+	50%{height: 18px}
+	100%{height: 10px}
+}
+
+.mod-piano__wrap{
+	position: absolute;
+    top: 80px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #f5f5f5;
+    z-index: 999999;
+    font-family: "microsoft yahei";
+}
+.customize-support .mod-piano__wrap{
+    top: 116px;
+}
+.mod-piano__album{
+	position: relative;
+    width: 980px;
+    margin: 0 auto;
+	padding: 20px 10px;
+	background: #fbfbfb;
+}
+
+.mod-piano__nav{
+    position: absolute;
+    left: -80px;
+    top: 20px;
+	width: 80px;
+
+	li{
+		border-left: 2px solid transparent;
+	    text-indent: 5px;
+	    line-height: 15px;
+	    cursor: pointer;
+	    margin: 10px 0;
+
+	    &.active{
+			border-left: 2px solid #39c;
+			a{
+				color: #333;
+			}
+	    }
+	    a{
+	    	color: #999;
+	    	.transition(all 0.2s ease-in-out);
+			&:hover{
+				text-decoration: none;
+				color: #333;
+			}
+	    }
+	}
+}
+
+// 录制
+.mod-piano__record{
+	position: relative;
+	width: 1000px;
+	margin:0 auto;
+	text-align: center;
+}
+
+.mod-piano__record a{
+	height: 30px;
+	line-height: 30px;
+	margin-right: 15px;
+	width: 107px;
+	cursor: pointer;
+	font-family: "microsoft yahei";
+	&:hover{
+		text-decoration: none;
+		color: #fff;
+	}
+}
+
+.mod-piano__record .mod-piano__record-state {
+	display: inline-block;
+	color: #999;
+    margin: 20px auto 10px;
+    text-align: center;
+}
+
+.mod-piano__record .mod-piano__record-panel {
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+}
+
+.mod-piano__record .mod-piano__record-panel .mod-piano__cancel-btn{
+	color: #666;
+	font-size: 14px;
+	line-height: 30px;
+	&:hover{
+		color: #e60012;
+		text-decoration: underline;
+	}
+}
+
+// share
+.mod-piano__record-share {}
+
+.mod-piano__share-copy_text{
+	position: fixed;
+    left: -999em;
+}
+
+.mod-piano__record-share span{
+	color: #666;
+	text-align: center;
+}
+.mod-piano__record-share a{
+	width: auto;
+	height: 25px;
+	color: #999;
+	line-height: 25px;
+	display: inline-block;
+	&:hover{
+		color: #88C209;
+	}
+	i{
+		display: inline-block;
+    	margin-right: 5px;
+    	vertical-align: -6px;
+	}
+}
+.mod-piano__record-share .sina-weibo i{
+	background-image: url(../slice/piano/wb.png);
+}
+.mod-piano__record-share .qq-weibo i{
+	background-image: url(../slice/piano/twb.png);
+}
+.mod-piano__record-share .qqzone i{
+	background-image: url(../slice/piano/qzone.png);
+}
+.mod-piano__record-share .renren i{
+	background-image: url(../slice/piano/rrw.png);
+}
+
+// 曲谱列表
+.mod-piano__album-list{}
+
+.mod-piano__album-list h2{
+	font-size: 18px;
+    color: #88C209;
+    text-align: center;
+    line-height: 34px;
+    padding-top: 5px;
+}
+.mod-piano__album-list h3{
+	text-align: center;
+    font-size: 14px;
+    color: #888;
+}
+.mod-piano__album-list ul{
+	margin: 10px;
+}
+.mod-piano__album-list li{
+	float: left;
+	width: 120px;
+	height: 28px;
+	line-height: 28px;
+	font-size: 14px;
+	.text-autocut();
+	list-style: disc inside;
+	color: #bfbfbf;
+}
+.mod-piano__album-list a{
+	color: #555;
+	cursor: pointer;
+	&:hover{
+		color: #88C209;
+	}
+}
+
+// 曲谱
+.mod-piano__song-opern{
+	padding-bottom:20px;
+	border-bottom:1px solid #f1f1f1;
+}
+
+.mod-piano__song_wrap{
+	width: 840px;
+	margin: 0 auto;
+}
+
+.mod-piano__opern-header{
+	z-index: 1;
+	position: relative;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	font-size: 14px;
+	color: #656565;
+	a{
+		color: #88C209;
+		cursor: pointer;
+		&:hover{
+			text-decoration: none;
+			color: darken(#88C209, 10%);
+		}
+	}
+	span{
+		font-size: 16px;
+    	color: #333;
+	}
+}
+
+.mod-piano__song-opern dl{
+	overflow: hidden;
+	zoom: 1;
+	margin: 0 auto;
+}
+.mod-piano__song-opern dt{
+	display: inline;
+	float: left;
+	width: 56px;
+	height: 26px;
+	line-height: 26px;
+	text-align: center;
+	color: #999999;
+}
+.mod-piano__song-opern dd{
+	display: inline;
+	position: relative;
+	float: left;
+	margin-left: 12px;
+	width: 10px;
+	height: 26px;
+	line-height: 26px;
+	font-size: 18px;
+	font-family: arial;
+	color: #7a7a7a;
+}
+
+.mod-piano__song-opern .letter{
+	padding-bottom: 10px;
+}
+.mod-piano__song-opern .number{
+	// margin-top: -1px;
+	padding-top: 10px;
+	border-top: 1px dotted #ddd;
+}
+.mod-piano__song-opern .number dd{
+	color: #47b902;
+}
+.mod-piano__song-opern .high-pat:after{
+	position: absolute;
+	top: -12px;
+	left: 2px;
+	width: 5px;
+	height: 5px;
+	content: '•';
+	font-size: 14px;
+
+}
+.mod-piano__song-opern .mod-piano__piano-key{
+	overflow: hidden;
+	height: 38px;
+}
+.mod-piano__song-opern .mod-piano__piano-key li{
+	position: relative;
+	float: left;
+	width: 108px;
+	line-height: 46px;
+	font-size: 20px;
+	text-align: center;
+	font-family: arial;
+	color: #e0e0e0;
+
+}
+.mod-piano__song-opern .mod-piano__piano-key .high-pat:after{
+	top: -14px;
+	left: 50%;
+	margin-left: -3px;
+	font-size: 14px;
+
+}
+
+// 按钮
+.piano_button {
+	-webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
+	box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.5), 0px 1px 2px rgba(0, 0, 0, 0.15);
+	background-color: #eeeeee;
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #fbfbfb), color-stop(100%, #e1e1e1));
+	background: -webkit-linear-gradient(top, #fbfbfb, #e1e1e1);
+	background: -moz-linear-gradient(top, #fbfbfb, #e1e1e1);
+	background: -o-linear-gradient(top, #fbfbfb, #e1e1e1);
+	background: linear-gradient(top, #fbfbfb, #e1e1e1);
+	display: -moz-inline-stack;
+	display: inline-block;
+	vertical-align: middle;
+	*vertical-align: auto;
+	zoom: 1;
+	*display: inline;
+	border: 1px solid #d4d4d4;
+	height: 32px;
+	line-height: 32px;
+	font-weight: 300;
+	font-size: 14px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	color: #666666;
+	text-shadow: 0 1px 1px white;
+	margin: 0;
+	text-decoration: none;
+	text-align: center;
+}
+.piano_button:hover {
+	background-color: #eeeeee;
+	background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dcdcdc));
+	background: -webkit-linear-gradient(top, #ffffff, #dcdcdc);
+	background: -moz-linear-gradient(top, #ffffff, #dcdcdc);
+	background: -o-linear-gradient(top, #ffffff, #dcdcdc);
+	background: linear-gradient(top, #ffffff, #dcdcdc);
+}
+.piano_button:active {
+	-webkit-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3), 0px 1px 0px white;
+	-moz-box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3), 0px 1px 0px white;
+	box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.3), 0px 1px 0px white;
+	text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.4);
+	background: #eeeeee;
+	color: #bbbbbb;
+}
+.piano_button:focus {
+	outline: none;
+}
+
+input.piano_button, button.piano_button {
+	height: 34px;
+	cursor: pointer;
+}
+
+
+
+.button-rounded {
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.button-flat {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transition-property: background;
+	-moz-transition-property: background;
+	-o-transition-property: background;
+	transition-property: background;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	background: #eeeeee;
+	border: none;
+	text-shadow: none;
+}
+.button-flat:hover {
+	background: #fbfbfb;
+}
+.button-flat:active {
+	-webkit-transition-duration: 0s;
+	-moz-transition-duration: 0s;
+	-o-transition-duration: 0s;
+	transition-duration: 0s;
+	background: #eeeeee;
+	color: #bbbbbb;
+}
+.button-flat.disabled {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.button-flat-primary {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transition-property: background;
+	-moz-transition-property: background;
+	-o-transition-property: background;
+	transition-property: background;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	background: #00a1cb;
+	color: white;
+	text-shadow: none;
+	border: none;
+}
+.button-flat-primary:hover {
+	background: #00b5e5;
+}
+.button-flat-primary:active {
+	-webkit-transition-duration: 0s;
+	-moz-transition-duration: 0s;
+	-o-transition-duration: 0s;
+	transition-duration: 0s;
+	background: #1495b7;
+	color: #00647f;
+}
+.button-flat-primary.disabled {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.button-flat-action {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transition-property: background;
+	-moz-transition-property: background;
+	-o-transition-property: background;
+	transition-property: background;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	background: #7db500;
+	color: white;
+	text-shadow: none;
+	border: none;
+}
+.button-flat-action:hover {
+	background: #8fcf00;
+}
+.button-flat-action:active {
+	-webkit-transition-duration: 0s;
+	-moz-transition-duration: 0s;
+	-o-transition-duration: 0s;
+	transition-duration: 0s;
+	background: #76a312;
+	color: #486900;
+}
+.button-flat-action.disabled {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.button-flat-highlight {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transition-property: background;
+	-moz-transition-property: background;
+	-o-transition-property: background;
+	transition-property: background;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	background: #f18d05;
+	color: white;
+	text-shadow: none;
+	border: none;
+}
+.button-flat-highlight:hover {
+	background: #fa9915;
+}
+.button-flat-highlight:active {
+	-webkit-transition-duration: 0s;
+	-moz-transition-duration: 0s;
+	-o-transition-duration: 0s;
+	transition-duration: 0s;
+	background: #d8891e;
+	color: #a66103;
+}
+.button-flat-highlight.disabled {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
+
+.button-flat-caution {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	-webkit-transition-property: background;
+	-moz-transition-property: background;
+	-o-transition-property: background;
+	transition-property: background;
+	-webkit-transition-duration: 0.3s;
+	-moz-transition-duration: 0.3s;
+	-o-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	background: #e54028;
+	color: white;
+	text-shadow: none;
+	border: none;
+}
+.button-flat-caution:hover {
+	background: #e8543f;
+}
+.button-flat-caution:active {
+	-webkit-transition-duration: 0s;
+	-moz-transition-duration: 0s;
+	-o-transition-duration: 0s;
+	transition-duration: 0s;
+	background: #cd5240;
+	color: #ac2815;
+}
+.button-flat-caution.disabled {
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}
